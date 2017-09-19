@@ -52,7 +52,7 @@ def convLayer(x, kHeight, kWidth, strideX, strideY,
         mergeFeatureMap = tf.concat(axis = 3, values = featureMap)
         # print mergeFeatureMap.shape
         out = tf.nn.bias_add(mergeFeatureMap, b)
-        return tf.nn.relu(tf.reshape(out, mergeFeatureMap.get_shape().as_list()), name = scope.name)
+        return tf.nn.relu(tf.reshape(out, tf.shape(mergeFeatureMap)), name = scope.name)
 
 class alexNet(object):
     """alexNet model"""
